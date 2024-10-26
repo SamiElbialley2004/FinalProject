@@ -1,0 +1,32 @@
+<div class="product-item">
+  <div class="product-image-container" routerLink="/details/{{item.id}}">
+    <img src="{{item.image}}" alt="Product Image">
+  </div>
+  <div class="product-body" routerLink="/details/{{item.id}}">
+    <h4 class="product-title">{{item.title}}</h4>
+    
+    <!-- Description with Read More Feature -->
+    <p class="product-description">
+      <span *ngIf="!showFullDescription">
+        {{item.description | slice:0:100}}... <!-- Show only the first 100 characters -->
+      </span>
+      <span *ngIf="showFullDescription">
+        {{item.description}} <!-- Show full description when toggled -->
+      </span>
+      <a href="javascript:void(0)" (click)="showFullDescription = !showFullDescription">
+        {{showFullDescription ? 'Read Less' : 'Read More'}}
+      </a>
+    </p>
+  </div>
+
+  <div class="product-actions px-3 mb-2 d-flex justify-content-between align-items-center">
+    <button class="btn btn-success" *ngIf="!addButton" (click)="add()">Add To Cart</button>
+    
+
+    
+    <span class="product-price">{{item.price}}$</span>
+  </div>
+  <div class="alert alert-success mt-2 text-center" *ngIf="showAddedNotification">
+    Added Successfully!
+  </div>
+</div>

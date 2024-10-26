@@ -1,0 +1,66 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Our Store</h1>
+    <p>Discover the best products at unbeatable prices!</p>
+    <button routerLink="/Products" class="shop-button">Shop Now</button>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products py-5">
+    <h2 class="text-center">Featured Products</h2>
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <ng-container *ngFor="let group of productGroups; let i = index">
+          <div class="carousel-item" [ngClass]="{'active': i === 0}">
+            <div class="row">
+              <div class="col-md-3" *ngFor="let product of group">
+                <div class="product card">
+                  <img [src]="product.image" [alt]="product.title" class="card-img-top" />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">{{ product.price }}$</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Loading Template -->
+    <ng-template #loading>
+      <p class="text-center">Loading products...</p>
+    </ng-template>
+  </section>
+  
+  <!-- Latest Products Section -->
+  <section class="latest-products py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center">Latest Products</h2>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let product of products">
+          <div class="card">
+            <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.price }}$</p>
+              <a  class="btn btn-danger"  routerLink="/details/{{product.id}}">View Product</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

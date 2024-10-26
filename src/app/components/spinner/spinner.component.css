@@ -1,0 +1,74 @@
+.loader {
+  animation: rotate 1.5s linear infinite; /* Slightly slower rotation for smoother effect */
+  height: 50px;
+  width: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader:before, 
+.loader:after { 
+  border-radius: 50%; 
+  content: "";
+  display: block;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+}
+
+.loader:before {
+  animation: ball1 1.5s ease-in-out infinite;
+  background-color: #000;
+  box-shadow: 35px 0 0 #ff3d00; /* Increased distance for better spacing */
+  margin-bottom: 10px;
+}
+
+.loader:after {
+  animation: ball2 1.5s ease-in-out infinite;
+  background-color: #ff3d00;
+  box-shadow: 35px 0 0 #000;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes ball1 {
+  0%, 100% {
+    box-shadow: 35px 0 0 #ff3d00;
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(-10px) scale(0.9);
+  }
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(15px, 15px) scale(1.2);
+  }
+  75% {
+    transform: translateX(-5px) translateY(-5px) scale(1);
+  }
+}
+
+@keyframes ball2 {
+  0%, 100% {
+    box-shadow: 35px 0 0 #000;
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(10px) scale(0.9);
+  }
+  50% {
+    box-shadow: 0 0 0 #000;
+    margin-top: -20px;
+    transform: translate(15px, 15px) scale(1.2);
+  }
+  75% {
+    transform: translateX(-5px) translateY(5px) scale(1);
+  }
+}

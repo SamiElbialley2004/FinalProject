@@ -1,0 +1,66 @@
+.cartBox {
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin: 50px 0;
+  }
+  
+  .cartBox .table .quantity {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cartBox .table .quantity input {
+    margin: 0 20px;
+  }
+ 
+  
+  .cartBox .table tbody {
+    border-top: 1px solid #c61d21;
+    border-bottom: 1px solid #c61d21;
+  }
+  
+  .cartBox .table tbody tr td {
+    border-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .cartBox .table tbody tr td img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  .cartBox input {
+    text-align: center;
+  }
+  
+  .headCart {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-header {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #c61d21;
+    border-radius: 8px;
+    color: #fff !important;/* Updated text color to white */
+    background-color: #c61d21;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Hover Effect */
+  .card-header:hover {
+    background-color: #b21b1e;
+    box-shadow: 0 4px 12px rgba(198, 29, 33, 0.4);
+    transform: translateY(-2px);
+  }
+  
